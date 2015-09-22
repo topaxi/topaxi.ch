@@ -62,11 +62,7 @@
 
 .main-menu .menu-item > a {
   height: 1.25em;
-  color: color(var(--color-primary) shade(30%));
-}
-
-.main-menu .menu-item > a:hover {
-  color: var(--color-primary);
+  text-decoration: none;
 }
 
 .main-menu .menu-item a:matches(.active, :hover) {
