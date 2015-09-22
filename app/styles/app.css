@@ -19,6 +19,20 @@
   margin: 1em 0 0.5em;
 }
 
+.brand::before, .brand::after {
+  bottom: 0.25rem;
+}
+
+.brand::before {
+  content: '';
+  background: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .brand::after {
   content: '';
   display: block;
@@ -26,7 +40,6 @@
   border-top: 2px solid color(var(--color-headings) blend(color(var(--color-primary)) 20%));
   border-bottom: 1px solid color(var(--color-primary) l(+15%));
   width: 100%;
-  bottom: 0.35rem;
   z-index: -1;
 }
 
@@ -80,6 +93,9 @@
 
   .page-header {
     margin-bottom: 8rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 
   .brand {
@@ -88,6 +104,7 @@
 
   .brand a {
     font-size: 4rem;
+    z-index: 1;
   }
 
   .main-menu {
@@ -114,6 +131,10 @@
 @media (--lg-viewport) {
   .page-header, .page-content, .page-footer {
     width: 60%;
+  }
+
+  .brand::after, .brand::after {
+    bottom: 0.35rem;
   }
 
   .brand a {
