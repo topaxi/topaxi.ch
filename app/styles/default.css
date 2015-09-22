@@ -19,6 +19,7 @@
 }
 
 * {
+  hyphens: auto;
   box-sizing: border-box;
 }
 
