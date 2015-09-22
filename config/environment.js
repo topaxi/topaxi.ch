@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'topaxich',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/new',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
