@@ -1,68 +1,22 @@
+@import 'default.css';
 @import 'fonts.css';
 
-/* Screen sizes */
-:root {
- --screen-xs-min:  480px;
- --screen-sm-min:  768px;
- --screen-md-min:  992px;
- --screen-lg-min: 1200px;
- --screen-xl-min: 1440px;
-}
-
-@custom-media --xs-viewport only screen and (min-width:  480px);
-@custom-media --sm-viewport only screen and (min-width:  768px);
-@custom-media --md-viewport only screen and (min-width:  992px);
-@custom-media --lg-viewport only screen and (min-width: 1200px);
-@custom-media --xl-viewport only screen and (min-width: 1440px);
-
-:root {
-  --color-primary: rgb(92, 155, 169);
-  --color-headings: rgb(42, 42, 42);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: Lora, serif;
-  color: rgb(56, 66, 69);
-}
-
-body {
-  margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-headings);
-  line-height: 1.15;
-  text-rendering: geometricprecision;
-}
-
-a, a:visited, a:link {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-::selection {
-  background-color: color(var(--color-primary) a(70%));
-}
-
-.ember-application > .ember-view > :matches(header, main, footer) {
+.page-header, .page-content, .page-footer {
   min-width: 320px;
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
+  padding: 0 10%;
+}
+
+.page-header {
+  margin-bottom: 5rem;
 }
 
 .brand {
   text-align: center;
   position: relative;
-  padding: 0 10%;
+  margin: 1em 0 0.5em;
 }
 
 .brand::after {
@@ -71,7 +25,7 @@ a:hover {
   position: absolute;
   border-top: 2px solid color(var(--color-headings) blend(color(var(--color-primary)) 20%));
   border-bottom: 1px solid color(var(--color-primary) tint(33%));
-  width: 80%;
+  width: 100%;
   bottom: 0.35rem;
   z-index: -1;
 }
@@ -84,17 +38,13 @@ a:hover {
   font-size: 3.5rem;
 }
 
-.main-menu {
-  padding: 0 10%;
-}
-
 .main-menu > ul {
   display: inline;
   padding: 0;
   margin: 0 auto;
   list-style: none;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 }
 
 .main-menu > ul + ul {
@@ -112,26 +62,41 @@ a:hover {
 
 .main-menu .menu-item > a {
   height: 1.25em;
-  text-shadow: 0 1px 0px rgba(0,0,0,.2);
+  color: color(var(--color-primary) shade(30%));
+}
+
+.main-menu .menu-item > a:hover {
+  color: var(--color-primary);
 }
 
 .main-menu .menu-item a:matches(.active, :hover) {
   text-decoration: underline;
 }
 
+.post-header {
+  margin-bottom: 3rem;
+}
+
 @media (--sm-viewport) {
+  .page-header, .page-content, .page-footer {
+    width: 80%;
+  }
+
+  .page-header {
+    margin-bottom: 8rem;
+  }
+
   .brand {
-    margin-top: 1em;
+    margin-top: 2em;
   }
 
   .brand a {
-    display: block;
     font-size: 4rem;
   }
 
   .main-menu {
-    top: 0;
-    padding: 0 10%;
+    position: relative;
+    bottom: 1.65rem;
   }
 
   .main-menu .menu-item {
@@ -146,6 +111,16 @@ a:hover {
   }
 
   .main-menu > ul + ul {
-    right: 10%;
+    right: 0;
   }
 }
+
+@media (--lg-viewport) {
+  .page-header, .page-content, .page-footer {
+    width: 60%;
+  }
+}
+
+/* old topaxi.ch */
+dt { margin: .5em 0 .25em }
+dt::after { content: ':' }

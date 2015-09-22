@@ -1,0 +1,196 @@
+<article class="post typeset">
+  <header class="post-header">
+    <h1>Custom CSS Selectors</h1>
+    <section class="post-meta">
+      <time class="post-date" datetime="2015-06-17">17 June 2015</time>  on <a href="/tag/css/">CSS</a>
+    </section>
+  </header>
+  <section class="post-content">
+    
+          <p>With <a href="http://cssnext.io/">cssnext</a> it is possible to use a maybe future standard feature of CSS called "<a href="http://tabatkins.github.io/specs/css-aliases/#custom-selectors">Custom CSS Selector</a>".</p>
+
+<p>Using custom CSS selectors, repeated selectors can be aliased to a shorter pseudo-selector.</p>
+
+<p>Example:</p>
+
+<pre class=" language-css"><code class=" language-css"><span class="token comment" spellcheck="true">/* Define custom selector, note that they must be prefixed with :-- */</span>
+<span class="token atrule">@custom-selector <span class="token punctuation">:</span>--headings h1, h2, h3, h4, h5, h6<span class="token punctuation">;</span></span>
+
+<span class="token comment" spellcheck="true">/* Use custom selector */</span>
+<span class="token selector"><span class="token pseudo-class">:--headings</span> </span><span class="token punctuation">{</span>
+<span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+<p>The custom selectors basically transform into <a href="http://topaxi.codes/the-matches-css-pseudo-class/"><code>:matches()</code></a> selectors, most <br>
+modern browser support some kind of <code>:matches()</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/%3Aany"><code>:-moz-any()</code></a> and <code>:-webkit-any()</code>). <br>
+<code>:--heading</code> would be equivalent to the <code>:matches(h1, h2, h3, h4, h5, h6)</code> pseudo-selector.
+But cssnext compiles them into simple selectors, supported by all browsers.</p>
+
+<h2 id="stylingcheckboxesusingcustomcssselectors">Styling checkboxes using custom CSS selectors  </h2>
+
+<p>As a more complicated example, I'm going to show you how one might implement custom checkboxes or radios.</p>
+
+<p>Implement custom checkboxes and radios for browsers which support <code>:checked</code> can be much more readable with custom selectors.</p>
+
+<pre class=" language-css"><code class=" language-css"><span class="token comment" spellcheck="true">/*
+Select radio and checkbox as :--checkbox, select both types as we will  
+customize both but style the radio a bit different later.  
+*/</span>
+<span class="token atrule">@custom-selector <span class="token punctuation">:</span>--checkbox input[type=checkbox], input[type=radio]<span class="token punctuation">;</span></span>
+
+<span class="token comment" spellcheck="true">/* Only select radios which are customizable */</span>
+<span class="token atrule">@custom-selector <span class="token punctuation">:</span>--customizableRadio input[type=radio]<span class="token punctuation">:</span>not(<span class="token punctuation">:</span>checked), input[type=radio]<span class="token punctuation">:</span>checked<span class="token punctuation">;</span></span>
+
+<span class="token comment" spellcheck="true">/* Checkboxes and radios are only customizable if `:checked` is supported */</span>
+@<span class="token property">custom-selector</span> <span class="token punctuation">:</span>--customizable input[type=checkbox]<span class="token punctuation">:</span><span class="token function">not</span>(<span class="token punctuation">:</span>checked), input[type=checkbox]<span class="token punctuation">:</span>checked,
+                               input[type=radio]<span class="token punctuation">:</span><span class="token function">not</span>(<span class="token punctuation">:</span>checked),    input[type=radio]<span class="token punctuation">:</span>checked<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*
+Hide the radios and checkboxes by moving them out of the viewport,  
+some browsers behave weird if they are set to `display: none`  
+*/</span>
+<span class="token selector"><span class="token pseudo-class">:--customizable</span> </span><span class="token punctuation">{</span>
+<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token property">left</span><span class="token punctuation">:</span> -<span class="token number">99999</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span> + label </span><span class="token punctuation">{</span>
+<span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">1.5</span>em<span class="token punctuation">;</span>
+<span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span> + label<span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+<span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">16</span>px<span class="token punctuation">;</span>
+<span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">16</span>px<span class="token punctuation">;</span>
+<span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token function">rgb</span>(<span class="token number">200</span>, <span class="token number">200</span>, <span class="token number">200</span>)<span class="token punctuation">;</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgb</span>(<span class="token number">255</span>, <span class="token number">255</span>, <span class="token number">255</span>)<span class="token punctuation">;</span>
+<span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+<span class="token property">transition</span><span class="token punctuation">:</span> border-color <span class="token number">0.15</span>s, box-shadow <span class="token number">0.15</span>s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Make radios round */</span>
+<span class="token selector"><span class="token pseudo-class">:--customizableRadio</span> + label<span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+<span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
+<span class="token property">top</span><span class="token punctuation">:</span> -<span class="token number">2</span>px<span class="token punctuation">;</span>
+<span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span> + label<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'\2713'</span><span class="token punctuation">;</span>
+<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token property">top</span><span class="token punctuation">:</span> -<span class="token number">1</span>px<span class="token punctuation">;</span>
+<span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+<span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span>px<span class="token punctuation">;</span>
+<span class="token property">font-weight</span><span class="token punctuation">:</span> <span class="token number">700</span><span class="token punctuation">;</span>
+<span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1.4</span><span class="token punctuation">;</span>
+<span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token property">transition</span><span class="token punctuation">:</span> opacity <span class="token number">0.2</span>s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* Use bullets for radios instead of the check mark */</span>
+<span class="token selector"><span class="token pseudo-class">:--customizableRadio</span> + label<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'\2022'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--checkbox</span><span class="token pseudo-class">:not(:checked)</span> + label<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--checkbox</span><span class="token pseudo-class">:checked</span> + label<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span><span class="token pseudo-class">:disabled</span> + label<span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+<span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token hexcode">#bbb</span><span class="token punctuation">;</span>
+<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ddd</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--checkbox</span><span class="token pseudo-class">:disabled</span><span class="token pseudo-class">:checked</span> + label<span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#999</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--checkbox</span><span class="token pseudo-class">:disabled</span> + label </span><span class="token punctuation">{</span>
+<span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#aaa</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span><span class="token pseudo-class">:focus</span> + label<span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+<span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">color</span>(green <span class="token function">tint</span>(<span class="token number">20%</span>))<span class="token punctuation">;</span>
+<span class="token property">outline</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">1</span>px <span class="token number">1</span>px <span class="token function">rgba</span>(<span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">0.075</span>) inset, <span class="token number">0</span> <span class="token number">0</span> <span class="token number">8</span>px <span class="token function">color</span>(green <span class="token function">a</span>(<span class="token number">60%</span>))<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token pseudo-class">:--customizable</span> + label<span class="token pseudo-class">:hover</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+<span class="token property">border-color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+<p>Which can now be used with the following HTML markup:</p>
+
+<pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox1<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Checkme<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio1<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">checked</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Checkme<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>  <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio2<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Checkme<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>  
+</code></pre>
+
+<div class="example">  
+<div>  
+<input id="checkbox1" type="checkbox">
+<label for="checkbox1">Checkme</label>
+
+<input id="checkbox2" disabled="" type="checkbox">
+<label for="checkbox2">Checkme</label>
+
+<input id="checkbox3" checked="" disabled="" type="checkbox">
+<label for="checkbox3">Checkme</label>
+</div>
+
+<div>  
+<input id="radio1" name="radiogrp1" checked="" type="radio">
+<label for="radio1">Checkme</label>
+
+<input id="radio2" name="radiogrp1" type="radio">
+<label for="radio2">Checkme</label>
+
+<input id="radio3" name="radiogrp1" disabled="" type="radio">
+<label for="radio3">Checkme</label>
+</div>
+
+<div>  
+<input id="radio4" name="radiogrp2" disabled="" checked="" type="radio">
+<label for="radio4">Checkme</label>
+
+<input id="radio5" name="radiogrp2" disabled="" type="radio">
+<label for="radio5">Checkme</label>
+
+<input id="radio6" name="radiogrp2" disabled="" type="radio">
+<label for="radio6">Checkme</label>
+</div>  
+
+<p></p></div><p></p>
+
+<p>Checkout the <a href="http://topaxi.ch/topaxi.codes/examples/custom-css-selectors/checkboxes.css">generated CSS file</a> to see the difference to the CSS above.</p>
+
+<p>Happy styling :)</p>
+
+<style scoped="">  
+input[type=checkbox]:not(:checked),input[type=checkbox]:checked,input[type=radio]:not(:checked),input[type=radio]:checked{position:absolute;left:-99999px}input[type=checkbox]:not(:checked) + label,input[type=checkbox]:checked + label,input[type=radio]:not(:checked) + label,input[type=radio]:checked + label{position:relative;padding-left:24px;padding-left:1.5em;cursor:pointer}input[type=checkbox]:not(:checked) + label:before,input[type=checkbox]:checked + label:before,input[type=radio]:not(:checked) + label:before,input[type=radio]:checked + label:before{content:'';position:absolute;left:0;top:0;width:16px;height:16px;border:1px solid #c8c8c8;background-color:#fff;border-radius:4px;-webkit-transition:border-color 0.15s,box-shadow .15s;transition:border-color 0.15s,box-shadow .15s}input[type=radio]:not(:checked) + label:before,input[type=radio]:checked + label:before{border-radius:50%}input[type=checkbox]:not(:checked) + label:after,input[type=checkbox]:checked + label:after,input[type=radio]:not(:checked) + label:after,input[type=radio]:checked + label:after{content:'\2713';position:absolute;top:-1px;left:4px;font-size:16px;font-weight:700;line-height:1.4;color:green;-webkit-transition:opacity .2s;transition:opacity .2s}input[type=radio]:not(:checked) + label:after,input[type=radio]:checked + label:after{content:'\2022';top:-1px;left:5px}input[type=checkbox]:not(:checked) + label:after,input[type=radio]:not(:checked) + label:after{opacity:0}input[type=checkbox]:checked + label:after,input[type=radio]:checked + label:after{opacity:1}input[type=checkbox]:not(:checked):disabled + label:before,input[type=checkbox]:checked:disabled + label:before,input[type=radio]:not(:checked):disabled + label:before,input[type=radio]:checked:disabled + label:before{border-color:#bbb;background-color:#ddd}input[type=checkbox]:disabled:checked + label:after,input[type=radio]:disabled:checked + label:after{color:#999}input[type=checkbox]:disabled + label,input[type=radio]:disabled + label{color:#aaa}input[type=checkbox]:not(:checked):focus + label:before,input[type=checkbox]:checked:focus + label:before,input[type=radio]:not(:checked):focus + label:before,input[type=radio]:checked:focus + label:before{border-color:#393;outline:0;box-shadow:0 1px 1px rgba(0,0,0,0.075) inset,0 0 8px green;box-shadow:0 1px 1px rgba(0,0,0,0.075) inset,0 0 8px rgba(0,128,0,0.6)}input[type=checkbox]:not(:checked) + label:hover:before,input[type=checkbox]:checked + label:hover:before,input[type=radio]:not(:checked) + label:hover:before,input[type=radio]:checked + label:hover:before{border-color:green}  
+</style>
+      
+  </section>
+  <footer class="post-footer">
+  </footer>
+</article>

@@ -1,4 +1,4 @@
-<header>
+<header class="page-header">
   <h1 class="brand">
     {{#link-to 'index'}}topaxi.ch{{/link-to}}
   </h1>
@@ -14,11 +14,14 @@
     </ul>
     <ul>
       <li class="menu-item">
-        <a href="#">About</a>
+        {{#link-to 'example-post'}}Example Post{{/link-to}}
+      </li>
+      <li class="menu-item">
+        {{#link-to 'about'}}About{{/link-to}}
       </li>
     </ul>
   </nav>
 </header>
-<main>{{outlet}}</main>
-<footer>
+<main class="page-content">{{outlet}}</main>
+<footer class="page-footer">
 </footer>
