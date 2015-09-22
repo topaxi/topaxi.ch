@@ -119,6 +119,10 @@
   .page-header, .page-content, .page-footer {
     width: 60%;
   }
+
+  .brand a {
+    font-size: 5rem;
+  }
 }
 
 /* old topaxi.ch */
