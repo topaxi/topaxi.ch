@@ -1,0 +1,89 @@
+@import 'fonts.css';
+
+:root {
+  --color-primary: rgb(92, 155, 169);
+  --color-headings: rgb(42, 42, 42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Lora, serif;
+  color: rgb(56, 66, 69);
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-headings);
+  line-height: 1.15;
+  text-rendering: geometricprecision;
+}
+
+a, a:visited, a:link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background-color: color(var(--color-primary) a(70%));
+}
+
+.ember-application > .ember-view > :matches(header, main, footer) {
+  min-width: 320px;
+  max-width: 1400px;
+  padding: 0 10%;
+  margin: 0 auto;
+}
+
+.brand {
+  text-align: center;
+  position: relative;
+}
+
+.brand::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 2px solid color(var(--color-headings) blend(color(var(--color-primary)) 20%));
+  border-bottom: 1px solid color(var(--color-primary) tint(33%));
+  width: 100%;
+  bottom: 0.35rem;
+  z-index: -1;
+}
+
+.brand a {
+  font-style: italic;
+  color: color(var(--color-headings) blend(color(var(--color-primary)) 20%));
+  text-decoration: none;
+  text-shadow: 0 1px 0 color(var(--color-primary) tint(33%));
+  font-size: 4rem;
+}
+
+.main-menu > ul {
+  max-width: 1000px;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.main-menu .menu-item a {
+  height: 1.25em;
+  text-shadow: 0 1px 0px rgba(0,0,0,.2);
+}
+
+.main-menu .menu-item a:matches(.active, :hover) {
+  text-decoration: underline;
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Lora';
+    src: url('Lora-Bold-webfont.eot');
+    src: url('Lora-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Lora-Bold-webfont.woff2') format('woff2'),
+         url('Lora-Bold-webfont.woff') format('woff'),
+         url('Lora-Bold-webfont.ttf') format('truetype'),
+         url('Lora-Bold-webfont.svg#lorabold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
