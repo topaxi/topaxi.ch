@@ -124,3 +124,5 @@
 /* old topaxi.ch */
 dt { margin: .5em 0 .25em }
 dt::after { content: ':' }
+dd > a, dd > a:link { text-decoration: none }
+dd > a:hover { text-decoration: underline }
