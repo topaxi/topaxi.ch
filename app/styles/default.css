@@ -98,3 +98,8 @@ pre code, pre tt {
   border: none;
   padding: 0;
 }
+
+img {
+  border: 0;
+  max-width: 100%;
+}
