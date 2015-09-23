@@ -16,6 +16,11 @@
 :root {
   --color-primary: rgb(28, 77, 70);
   --color-headings: rgb(42, 42, 42);
+
+  --font-serif: Lora, serif;
+  --font-sans: 'PT Sans', sans-serif;
+  --font-heading: 'PT Sans Caption', sans-serif;
+  --font-mono: Consolas, monospace, sans-serif;
 }
 
 * {
@@ -24,7 +29,7 @@
 }
 
 html {
-  font-family: Lora, serif;
+  font-family: var(--font-sans);
   color: rgb(56, 66, 69);
   font-size: 62.5%;
   overflow-y: scroll;
@@ -38,6 +43,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   color: var(--color-headings);
   line-height: 1.15;
   text-rendering: geometricprecision;
@@ -60,12 +66,13 @@ a:hover {
 
 p, ul, ol, dl {
   font-feature-settings: "liga", "onum", "kern";
+  font-family: var(--font-serif);
   margin: 0 0 1.75em;
   text-rendering: geometricprecision;
 }
 
 code, kbd, pre, samp {
-  font-family: monospace,serif;
+  font-family: var(--font-mono);
   font-size: 1em;
 }
 
@@ -74,7 +81,7 @@ pre {
   border: 1px solid rgb(227, 237, 243);
   width: 100%;
   padding: 10px;
-  font-family: Consolas, monospace, sans-serif;
+  font-family: var(--font-mono);
   font-size: 0.9em;
   white-space: pre-wrap;
   overflow: auto;
@@ -84,7 +91,7 @@ pre {
 
 code, tt {
   padding: 1px 3px;
-  font-family: Consolas, monospace, sans-serif;
+  font-family: var(--font-mono);
   font-size: 0.85em;
   white-space: pre-wrap;
   border: 1px solid rgb(227, 237, 243);

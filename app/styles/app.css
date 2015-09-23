@@ -44,7 +44,6 @@
 }
 
 .brand a {
-  font-style: italic;
   color: color(var(--color-headings) blend(color(var(--color-primary)) 20%));
   text-decoration: none;
   text-shadow: 0 1px 0 color(var(--color-primary) l(+15%));
@@ -76,6 +75,7 @@
 .main-menu .menu-item > a {
   height: 1.25em;
   text-decoration: none;
+  font-family: var(--font-sans);
 }
 
 .main-menu .menu-item a:matches(.active, :hover) {

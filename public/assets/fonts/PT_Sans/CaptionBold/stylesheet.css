@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'PT Sans Caption';
+    src: url('PTC75F-webfont.eot');
+    src: url('PTC75F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('PTC75F-webfont.woff2') format('woff'),
+         url('PTC75F-webfont.woff') format('woff'),
+         url('PTC75F-webfont.ttf') format('truetype'),
+         url('PTC75F-webfont.svg#pt_sans_captionbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
