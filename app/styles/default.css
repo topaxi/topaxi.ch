@@ -33,6 +33,7 @@ html {
   color: rgb(56, 66, 69);
   font-size: 62.5%;
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
@@ -40,6 +41,7 @@ body {
   font-size: 1.8rem;
   line-height: 1.75em;
   background: #fff;
+  min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
