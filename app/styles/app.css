@@ -1,7 +1,7 @@
 @import 'default.css';
 @import 'fonts.css';
 
-.page-header, .page-content, .page-footer {
+.main-header, .main-header-content, .content, .site-footer {
   min-width: 320px;
   max-width: 1400px;
   margin: 0 auto;
@@ -9,11 +9,16 @@
   padding: 0 3%;
 }
 
-.page-header {
+.main-header-background {
+  background: #fff;
   margin-bottom: 5rem;
 }
 
-.page-footer {
+.main-header-content {
+  text-align: center;
+}
+
+.site-footer {
   font-size: 1.25rem;
 }
 
@@ -27,6 +32,7 @@
   bottom: 0.25rem;
 }
 
+/*
 .brand::before {
   content: '';
   background: #fff;
@@ -36,6 +42,7 @@
   position: absolute;
   z-index: -1;
 }
+*/
 
 .brand::after {
   content: '';
@@ -52,6 +59,19 @@
   text-decoration: none;
   text-shadow: 0 1px 0 color(var(--color-primary) l(+15%));
   font-size: 3.5rem;
+}
+
+.copyright {
+  display: block;
+  width: 45%;
+  float: left;
+}
+
+.poweredby {
+  display: block;
+  width: 45%;
+  float: right;
+  text-align: right;
 }
 
 .main-menu > ul {
@@ -86,27 +106,39 @@
   text-decoration: underline;
 }
 
+.post {
+  margin: 4rem auto;
+  padding-bottom: 4rem;
+  border-bottom: #ebf2f6 1px solid;
+  word-wrap: break-word;
+}
+
 .post-header {
   margin-bottom: 3rem;
 }
 
+.post-title a {
+  text-decoration: none;
+}
+
 @media (--xs-viewport) {
-  .page-header, .page-content, .page-footer {
+  .main-header, .content, .site-footer {
     padding: 0 5%;
   }
 }
 
 @media (--sm-viewport) {
-  .page-header, .page-content, .page-footer {
+  .main-header, .content, .site-footer {
     width: 80%;
     padding: 0 10%;
   }
 
-  .page-header {
-    margin-bottom: 8rem;
+  .main-header-background {
     position: sticky;
+    margin-bottom: 8rem;
     top: 0;
     z-index: 1;
+    height: 50px;
   }
 
   .brand {
@@ -140,7 +172,7 @@
 }
 
 @media (--lg-viewport) {
-  .page-header, .page-content, .page-footer {
+  .main-header, .content, .site-footer {
     width: 60%;
   }
 

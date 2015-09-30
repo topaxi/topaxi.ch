@@ -1,26 +1,30 @@
-<header class="page-header">
-  <h1 class="brand">
-    {{#link-to 'index'}}topaxi.ch{{/link-to}}
-  </h1>
+<div class="main-header-background">
+  <header class="main-header">
+    <h1 class="brand">
+      {{#link-to 'index'}}topaxi.ch{{/link-to}}
+    </h1>
 
-  <nav class="main-menu">
-    <ul>
-      <li class="menu-item">
-        {{#link-to 'index'}}Home{{/link-to}}
-      </li>
-      <li class="menu-item">
-        <a href="https://topaxi.codes/">Blog</a>
-      </li>
-    </ul>
-    <ul>
-      <li class="menu-item">
-        {{#link-to 'example-post'}}Example Post{{/link-to}}
-      </li>
-      <li class="menu-item">
-        {{#link-to 'about'}}About{{/link-to}}
-      </li>
-    </ul>
-  </nav>
-</header>
-<main class="page-content">{{outlet}}</main>
-<footer class="page-footer">© Damian Senn 2015</footer>
+    <nav class="main-menu">
+      <ul>
+        <li class="menu-item">
+          {{#link-to 'index'}}Home{{/link-to}}
+        </li>
+        <li class="menu-item">
+          <a href="https://topaxi.codes/">Blog</a>
+        </li>
+      </ul>
+      <ul>
+        <li class="menu-item">
+          {{#link-to 'example-post'}}Example Post{{/link-to}}
+        </li>
+        <li class="menu-item">
+          {{#link-to 'about'}}About{{/link-to}}
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+<main class="content" role="main">{{outlet}}</main>
+<footer class="site-footer">
+  <section class="copyright"><a href="https://topaxi.ch/">topaxi.ch</a> © 2015</section>
+</footer>
