@@ -80,11 +80,11 @@ h6 {
 
 a {
   transition: color 0.3s ease;
+  text-decoration: underline;
 }
 
 a, a:visited, a:link {
   color: var(--color-primary);
-  text-decoration: underline;
 }
 
 a:hover {
