@@ -1,12 +1,13 @@
-# http://www.robotstxt.org
 User-agent: *
 
 Allow: /$
-Allow: /about$
+Allow: /about
 Allow: /favicon.ico
 Allow: /m$
 Allow: /mobile$
 Allow: /blog$
 Allow: /sitemap
+Allow: /assets
+Allow: /topaxi.codes
 
 Disallow: /
