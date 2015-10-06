@@ -58,6 +58,20 @@ const projects = [
     technologies: [
       'CSS3', 'HTML5', 'JavaScript', 'PHP'
     ]
+  },
+  {
+    name: 'easyCOMM General Assembly Tool',
+    slug: 'easycomm-ga-tool',
+    year: '2010-2015',
+    screenshot: {
+      alt:         '',
+      width:       1280,
+      height:       947
+    },
+    description: 'A JavaScript heavy web application with realtime communication made for <a href="http://www.easycomm.ch/">easyCOMM</a> to aid in general assemblies of big companies and banks.',
+    technologies: [
+      'CSS3', 'HTML5', 'JavaScript', 'PHP'
+    ]
   }
 ]
 
