@@ -47,7 +47,7 @@ const projects = [
   {
     name: 'Gameswelt Artikel Admin',
     slug: 'gameswelt_article_admin',
-    year: 2014,
+    year: 2013,
     screenshot: {
       alt:         'Screenshot of gameswelt.de',
       description: 'Screenshot of <a href="http://www.gameswelt.de/">gameswelt.de</a>',
