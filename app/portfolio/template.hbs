@@ -1,13 +1,13 @@
-<div style="display:flex;flex-direction:row">
+<div class="portfolio">
   {{outlet}}
 
-  <aside style="flex: 0 0 200px;">
+  <aside>
     <h3>Projects</h3>
     {{#each model as |project|}}
       <article class="aside-portfolio">
         <figure>
           {{#link-to 'portfolio.project' project}}
-            <img src="/assets/pictures/portfolio/{{project.slug}}/thumbnail.png" alt="{{screenshot.alt}}">
+            <img src="/assets/pictures/portfolio/{{project.slug}}/thumbnail.png" width="128" alt="{{screenshot.alt}}">
           {{/link-to}}
         </figure>
       </article>

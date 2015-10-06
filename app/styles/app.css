@@ -123,6 +123,14 @@
   text-decoration: none;
 }
 
+.portfolio {
+  display: flex;
+}
+
+.portfolio > aside {
+  flex: 0 0 200px;
+}
+
 .aside-portfolio a {
   filter: grayscale(100%) opacity(80%);
   transition: filter 0.5s;
@@ -139,6 +147,10 @@
 .aside-portfolio figure {
   margin-left: 0;
   margin-right: 0;
+}
+
+.portfolio-project {
+  padding-right: 2rem;
 }
 
 .portfolio-project > footer ul {
