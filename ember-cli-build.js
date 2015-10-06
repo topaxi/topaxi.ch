@@ -6,7 +6,8 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: [
         'sleepy-topcatinja__dark-eyes.png',
-        'topaxich.css'
+        'topaxich.css',
+        'assets/pictures/portfolio'
       ]
     }
   });
