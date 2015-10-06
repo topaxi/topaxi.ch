@@ -16,7 +16,7 @@ const projects = [
   },
   {
     name: 'Gameswelt Relaunch',
-    slug: 'gameswelt_relaunch',
+    slug: 'gameswelt-relaunch',
     year: 2014,
     screenshot: {
       alt:         'Screenshot of gameswelt.de',
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     name: 'Gameswelt Artikel Admin',
-    slug: 'gameswelt_article_admin',
+    slug: 'gameswelt-article-admin',
     year: 2013,
     screenshot: {
       alt:         'Screenshot of gameswelt.de',

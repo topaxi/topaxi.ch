@@ -17,15 +17,15 @@
           {{/if}}
         </figure>
       {{/with}}
-      <p>{{project.description}}</p>
+      <p>{{{project.description}}}</p>
     </section>
     <footer>
-      {{#with project.technologies as |technology|}}
+      {{#with project.technologies as |technologies|}}
         <small>
           Used technologies:
           <ul class="techmologies">
-            {{#each technology as |t|}}
-              <li>{{t}}</li>
+            {{#each technologies as |technology|}}
+              <li>{{technology}}</li>
             {{/each}}
           </ul>
         </small>
