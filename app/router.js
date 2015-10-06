@@ -1,10 +1,12 @@
 import Ember from 'ember'
 import config from './config/environment'
 
+const { on } = Ember
+
 const Router = Ember.Router.extend({
   location: config.locationType,
 
-  notifyGoogleAnalytics: function() {
+  notifyGoogleAnalytics: on('didTransition', function() {
     if (window.ga) {
       let url = this.get('url')
 
@@ -13,12 +15,15 @@ const Router = Ember.Router.extend({
         title: url
       })
     }
-  }.on('didTransition')
+  })
 })
 
 Router.map(function() {
   this.route('index', { path: '/' })
   this.route('about')
+  this.route('portfolio', function() {
+    this.route('project', { path: '/:slug' })
+  })
   this.route('notfound', { path: '/*path' })
 })
 

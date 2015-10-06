@@ -1,0 +1,35 @@
+{{#with model as |project|}}
+  <article class="portfolio-project">
+    <header>
+      <h3>
+        {{project.name}}
+        {{#with project.year as |year|}}
+          ({{year}})
+        {{/with}}
+      </h3>
+    </header>
+    <section>
+      {{#with project.screenshot as |screenshot|}}
+        <figure>
+          <img src="/assets/pictures/portfolio/{{project.slug}}/screenshot.png" width="400" alt="{{screenshot.alt}}">
+          {{#if screenshot.description}}
+            <figcaption>{{{screenshot.description}}}</figcaption>
+          {{/if}}
+        </figure>
+      {{/with}}
+      <p>{{project.description}}</p>
+    </section>
+    <footer>
+      {{#with project.technologies as |technology|}}
+        <small>
+          Used technologies:
+          <ul class="techmologies">
+            {{#each technology as |t|}}
+              <li>{{t}}</li>
+            {{/each}}
+          </ul>
+        </small>
+      {{/with}}
+    </footer>
+  </article>
+{{/with}}

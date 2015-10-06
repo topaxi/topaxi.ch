@@ -123,6 +123,35 @@
   text-decoration: none;
 }
 
+.aside-portfolio a {
+  filter: grayscale(100%);
+  transition: filter 0.5s;
+}
+
+.aside-portfolio a:hover {
+  filter: grayscale(65%);
+}
+
+.aside-portfolio a.active {
+  filter: none;
+}
+
+.aside-portfolio figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.portfolio-project > footer ul {
+  display: inline-flex;
+  list-style: none;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.portfolio-project > footer li + li::before {
+  content: ', '
+}
+
 @media (--xs-viewport) {
   .main-header, .content, .site-footer {
     padding: 0 5%;
