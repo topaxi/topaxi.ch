@@ -124,7 +124,7 @@
 }
 
 .aside-portfolio a {
-  filter: grayscale(100%);
+  filter: grayscale(100%) opacity(80%);
   transition: filter 0.5s;
 }
 
