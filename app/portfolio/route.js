@@ -2,7 +2,7 @@ import Route from 'ember-route'
 
 const projects = [
   {
-    name: 'Adfinis Sygroup AG CSS Framework',
+    name: 'Adfinis SyGroup AG CSS Framework',
     slug: 'adcssy',
     year: 2015,
     screenshot: {
