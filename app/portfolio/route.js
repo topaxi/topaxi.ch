@@ -74,6 +74,18 @@ const projects = [
     ]
   },
   {
+    name: 'neuhier.ch',
+    slug: 'neuhier',
+    year: '2009-2010',
+    screenshot: {
+      alt: 'Screenshot of neuhier.ch in 2009'
+    },
+    description: 'Swiss portal of service providers in Zurich.',
+    technologies: [
+      'CSS', 'XHTML 1.1', 'JavaScript', 'PHP', 'MySQL'
+    ]
+  },
+  {
     name: 'Gameswelt',
     slug: 'gameswelt',
     year: '2008-2015',
@@ -84,7 +96,7 @@ const projects = [
     },
     description: 'Maintenance, development and performance tuning of one of the biggest german game online magazines.',
     technologies: [
-      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
+      'CSS', 'XHTML 1.1', 'JavaScript', 'PHP', 'MySQL'
     ]
   }
 ]
