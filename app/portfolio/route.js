@@ -7,7 +7,7 @@ const projects = [
     year: 2015,
     screenshot: {
       alt:         'Screenshot of the generated styleguide',
-      description: 'Screenshot of the generated styleguide at <a href="https://adfinis-sygroup.github.io/adcssy">adfinis-sygroup.github.io/adcssy</a>',
+      description: 'Screenshot of the generated styleguide at <a class="break-all" href="https://adfinis-sygroup.github.io/adcssy">adfinis-sygroup.github.io/adcssy</a>',
       width:       1280,
       height:       947
     },
