@@ -26,7 +26,7 @@ const projects = [
     },
     description: 'Complete frontend rewrite in PHP and realization of given layout in HTML5 and CSS3',
     technologies: [
-      'CSS3', 'HTML5', 'JavaScript', 'PHP'
+      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
     ]
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     },
     description: 'Backend integration into gameswelt.de, complete frontend implementation in PHP and realization of given layout in HTML5 and CSS3',
     technologies: [
-      'CSS3', 'HTML5', 'JavaScript', 'PHP'
+      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
     ]
   },
   {
@@ -56,7 +56,7 @@ const projects = [
     },
     description: 'Rewrite of the gameswelt article admin, merging different, but very similar, article types into one unified type.',
     technologies: [
-      'CSS3', 'HTML5', 'JavaScript', 'PHP'
+      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
     ]
   },
   {
@@ -70,7 +70,21 @@ const projects = [
     },
     description: 'A JavaScript heavy web application with realtime communication made for <a href="http://www.easycomm.ch/">easyCOMM</a> to aid in general assemblies of big companies and banks.',
     technologies: [
-      'CSS3', 'HTML5', 'JavaScript', 'PHP'
+      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
+    ]
+  },
+  {
+    name: 'Gameswelt',
+    slug: 'gameswelt',
+    year: '2008-2015',
+    screenshot: {
+      alt:         'Screenshot of gameswelt.de in 2013',
+      width:       1280,
+      height:       947
+    },
+    description: 'Maintenance, development and performance tuning of one of the biggest german game online magazines.',
+    technologies: [
+      'CSS3', 'HTML5', 'JavaScript', 'PHP', 'MySQL'
     ]
   }
 ]
