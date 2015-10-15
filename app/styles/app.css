@@ -104,6 +104,10 @@
   font-family: var(--font-sans);
 }
 
+.font-sans--loaded .main-menu .menu-item > a {
+  font-family: var(--font-sans-custom);
+}
+
 .main-menu .menu-item a:matches(.active, :hover) {
   text-decoration: underline;
 }
