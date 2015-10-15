@@ -13,6 +13,6 @@
     "qunit": "~1.18.0"
   },
   "resolutions": {
-    "ember": "canary"
+    "ember": "6f9660dba7c14fd7a11cc0dbe874b020d3a1f571"
   }
 }
