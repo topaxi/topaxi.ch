@@ -28,6 +28,11 @@ const FONTS = [
 ]
 
 export function loadFonts() {
+  // Only inject fonts if rendering in browser
+  if (typeof document === 'undefined') {
+    return
+  }
+
   FONTS.forEach(font => {
     let observer = new FontFaceObserver(font.family, font)
 
