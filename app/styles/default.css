@@ -13,14 +13,21 @@
 @custom-media --lg-viewport only screen and (min-width: 1200px);
 @custom-media --xl-viewport only screen and (min-width: 1440px);
 
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+
 :root {
   --color-primary: rgb(28, 77, 70);
   --color-headings: rgb(42, 42, 42);
 
-  --font-serif: Lora, serif;
-  --font-sans: 'PT Sans', sans-serif;
-  --font-heading: 'PT Sans Caption', sans-serif;
+  --font-serif: serif;
+  --font-sans: sans-serif;
+  --font-heading: sans-serif;
   --font-mono: Consolas, monospace, sans-serif;
+
+  --font-serif-custom: Lora, serif;
+  --font-sans-custom: 'PT Sans', sans-serif;
+  --font-heading-custom: 'PT Sans Caption', sans-serif;
+  --font-mono-custom: Consolas, monospace, sans-serif;
 }
 
 * {
@@ -40,6 +47,10 @@ html {
   height: 100%;
 }
 
+html.font-sans--loaded {
+  font-family: var(--font-sans-custom);
+}
+
 body {
   margin: 0;
   font-size: 1.8rem;
@@ -48,12 +59,16 @@ body {
   /*min-height: 100%;*/
 }
 
-h1, h2, h3, h4, h5, h6 {
+:--headings {
   font-family: var(--font-heading);
   color: var(--color-headings);
   line-height: 1.15;
   text-rendering: geometricprecision;
   margin: 0 0 0.4em;
+}
+
+.font-heading--loaded :--headings {
+  font-family: var(--font-heading-custom);
 }
 
 h1 {
@@ -107,6 +122,10 @@ p, ul, ol, dl {
   text-rendering: geometricprecision;
 }
 
+.font-serif--loaded :matches(p, ul, ol, dl) {
+  font-family: var(--font-serif-custom);
+}
+
 ol, ul {
   padding-left: 3rem;
 }
@@ -126,7 +145,7 @@ li li {
 }
 
 code, kbd, pre, samp {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono-custom);
   font-size: 1em;
 }
 
@@ -135,7 +154,7 @@ pre {
   border: 1px solid rgb(227, 237, 243);
   width: 100%;
   padding: 10px;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono-custom);
   font-size: 0.9em;
   white-space: pre-wrap;
   overflow: auto;
@@ -145,7 +164,7 @@ pre {
 
 code, tt {
   padding: 1px 3px;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono-custom);
   font-size: 0.85em;
   white-space: pre-wrap;
   border: 1px solid rgb(227, 237, 243);
