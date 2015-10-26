@@ -25,7 +25,13 @@
           Used technologies:
           <ul class="technologies">
             {{#each technologies as |technology|}}
-              <li>{{technology}}</li>
+              <li>
+                {{~#if technology.link~}}
+                  <a href={{technology.link}}>{{technology.name}}</a>
+                {{~else~}}
+                  {{~technology.name~}}
+                {{~/if~}}
+              </li>
             {{/each}}
           </ul>
         </small>
