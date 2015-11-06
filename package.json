@@ -1,7 +1,7 @@
 {
-  "name": "topaxich",
+  "name": "topaxi.ch",
   "version": "0.0.0",
-  "description": "Small description for topaxich goes here",
+  "description": "Small description for topaxi.ch goes here",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -16,7 +16,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Damian Senn <damian.senn@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
