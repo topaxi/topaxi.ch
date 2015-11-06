@@ -4,60 +4,70 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://topaxi.ch/portfolio/tcs-cardispo2</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/tcs-cardispo2/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/ember-symon</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/ember-symon/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/adsycc</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/adsycc/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/adcssy</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/adcssy/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/gameswelt-relaunch</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/gameswelt-relaunch/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/manntv</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/manntv/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/gameswelt-article-admin</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/gameswelt-article-admin/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/easycomm-ga-tool</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/easycomm-ga-tool/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/neuhier</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/neuhier/screenshot.png</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://topaxi.ch/portfolio/gameswelt</loc>
+    <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/gameswelt/screenshot.png</image:loc>
     </image:image>
