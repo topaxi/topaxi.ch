@@ -1,5 +1,7 @@
 User-agent: *
 
+Sitemap: https://topaxi.ch/sitemap.xml
+
 Allow: /$
 Allow: /about
 Allow: /favicon.ico
