@@ -4,4 +4,7 @@
   <sitemap>
     <loc>https://topaxi.ch/sitemap/index.xml</loc>
   </sitemap>
+  <sitemap>
+    <loc>https://topaxi.ch/sitemap/portfolio.xml</loc>
+  </sitemap>
 </sitemapindex>
