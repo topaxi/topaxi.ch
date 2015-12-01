@@ -12,6 +12,7 @@
     "qunit": "~1.19.0"
   },
   "resolutions": {
-    "ember": "canary"
+    "ember": "canary",
+    "qunit-notifications": "~0.1.0"
   }
 }
