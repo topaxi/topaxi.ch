@@ -39,6 +39,6 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.5",
     "ember-resolver": "^2.0.3",
-    "fontfaceobserver": "1.5.4"
+    "fontfaceobserver": "1.5.5"
   }
 }
