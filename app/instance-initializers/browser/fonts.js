@@ -1,7 +1,5 @@
 /* global FontFaceObserver */
-import Ember from 'ember'
-
-const { $ } = Ember
+import $ from 'jquery'
 
 // Only loading always needed fonts, italic,
 // some bold versions etc. might be invisible until loaded.
@@ -28,11 +26,6 @@ const FONTS = [
 ]
 
 export function loadFonts() {
-  // Only inject fonts if rendering in browser
-  if (typeof document === 'undefined') {
-    return
-  }
-
   FONTS.forEach(font => {
     let observer = new FontFaceObserver(font.family, font)
 
