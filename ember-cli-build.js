@@ -7,9 +7,9 @@ module.exports = function(defaults) {
       url: false
     },
     fingerprint: {
+      replaceExtensions: [ 'html', 'css', 'js', 'xml' ],
       exclude: [
-        'topaxich.css',
-        'assets/pictures/portfolio'
+        'topaxich.css'
       ]
     }
   });

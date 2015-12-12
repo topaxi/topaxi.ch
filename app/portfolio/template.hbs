@@ -7,7 +7,7 @@
       <article class="aside-portfolio">
         <figure>
           {{#link-to 'portfolio.project' project}}
-            <img src="/assets/pictures/portfolio/{{project.slug}}/thumbnail.png" width="128" alt="{{screenshot.alt}}">
+            <img src={{project.thumbnail}} width="128" alt={{project.name}}>
           {{/link-to}}
         </figure>
       </article>

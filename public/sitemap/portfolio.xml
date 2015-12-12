@@ -2,13 +2,13 @@
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
+  <!--url>
     <loc>https://topaxi.ch/portfolio/tcs-cardispo2</loc>
     <priority>0.5</priority>
     <image:image>
       <image:loc>https://topaxi.ch/assets/pictures/portfolio/tcs-cardispo2/screenshot.png</image:loc>
     </image:image>
-  </url>
+  </url-->
   <url>
     <loc>https://topaxi.ch/portfolio/ember-symon</loc>
     <priority>0.5</priority>
