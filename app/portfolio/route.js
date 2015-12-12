@@ -21,6 +21,10 @@ const technologies = {
     name: 'cssnext',
     link: 'http://cssnext.io/'
   },
+  'socketio': {
+    name: 'socket.io',
+    link: 'http://socket.io/'
+  },
   'php': {
     name: 'PHP',
     link: null
@@ -80,6 +84,8 @@ const projects = [
     name: 'TCS Cardispo2',
     slug: 'tcs-cardispo2',
     year: '2015-2016',
+    screenshot: {
+    },
     description: 'Complete rewrite and modernization of an existing Perl application for TCS Switzerland.',
     technologies: [
       technologies.ember,
@@ -96,6 +102,8 @@ const projects = [
     name: 'Ember SyMon',
     slug: 'ember-symon',
     year: 2015,
+    screenshot: {
+    },
     description: 'A prototype GUI for our existing monitoring solution, built with Ember.js and our own CSS Framework.',
     technologies: [
       technologies.ember,
@@ -108,6 +116,8 @@ const projects = [
     name: 'Adfinis SyGroup Customer Center',
     slug: 'adsycc',
     year: 2015,
+    screenshot: {
+    },
     description: 'Customer center for Adfinis SyGroup AG, showing customer created tickets, bug tracker issues and timetracking.',
     technologies: [
       technologies.ember,
@@ -135,6 +145,18 @@ const projects = [
       technologies.cssnext,
       technologies.postcss,
       technologies.broccolijs
+    ]
+  },
+  {
+    name: 'BVB Infotainment',
+    slug: 'bvb-infotainment',
+    year: '2014-2015',
+    screenshot: {
+    },
+    description: 'A advertising and information livestreaming platform for trams and buses in Basel.',
+    technologies: [
+      technologies.nodejs,
+      technologies.socketio
     ]
   },
   {
