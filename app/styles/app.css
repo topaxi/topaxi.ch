@@ -119,6 +119,75 @@
   word-wrap: break-word;
 }
 
+/* TODO: Remove from ghost theme */
+.adsbygoogle, .post {
+  position: relative;
+  max-width: 710px;
+  display: block;
+}
+
+/* TODO: Remove from ghost theme */
+.post::after {
+  display: block;
+  content: "";
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgb(231, 238, 242);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  background: rgb(255, 255, 255);
+  border-radius: 100%;
+  box-shadow: rgb(255, 255, 255) 0 0 0 5px;
+}
+
+/* TODO: Remove from ghost theme */
+.post-excerpt p {
+  margin: 0;
+  font-size: .9em;
+  line-height: 1.7em;
+}
+
+/* TODO: Remove from ghost theme */
+.author-thumb {
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin-right: 9px;
+  border-radius: 100%;
+}
+
+/* TODO: Remove from ghost theme */
+.post-meta {
+  display: block;
+  margin: 1.75rem 0 0;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  color: rgb(158, 171, 179);
+}
+
+/* TODO: Remove from ghost theme */
+.post-meta a {
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+/* TODO: Remove from ghost theme */
+.post-date {
+  display: inline-block;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgb(213, 219, 222);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
 .post-header {
   margin-bottom: 3rem;
 }
@@ -185,6 +254,47 @@
 
 .break-all {
   word-break: break-all;
+}
+
+.badge-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem 0 2rem;
+}
+
+.badge {
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  filter: grayscale(75%);
+  transition: 0.5s filter;
+}
+
+.badge:hover {
+  filter: none;
+}
+
+.badge > a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge--github {
+  background-color: #181717;
+}
+
+.badge--twitter {
+  background-color: #55ACEE;
+}
+
+.badge--googleplus {
+  background-color: #DC4E41;
+}
+
+.badge--lastfm {
+  background-color: #D51007;
 }
 
 @media (--xs-viewport) {
@@ -264,9 +374,3 @@
     font-size: 5rem;
   }
 }
-
-/* old topaxi.ch */
-dt { margin: .5em 0 .25em }
-dt::after { content: ':' }
-dd > a, dd > a:link { text-decoration: none }
-dd > a:hover { text-decoration: underline }

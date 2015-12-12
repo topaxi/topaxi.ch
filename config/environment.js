@@ -16,7 +16,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'default-src': "'none' topaxi.codes:443",
+      'script-src': "'self' 'sha256-MHx6e2DNTYYvNm/YAmCjLXDVg3uEK7sI7xP7oy5kIjs=' www.google-analytics.com",
+      'font-src': "'self'",
+      'connect-src': "'self' topaxi.codes:443",
+      'img-src': "'self' www.gravatar.com",
+      'style-src': "'self'",
+      'media-src': "'self'"
     }
+
   };
 
   if (environment === 'development') {
