@@ -1,7 +1,6 @@
-# Topaxich
+# [topaxi.ch](https://topaxi.ch/)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+topaxi.ch Landing page built with Ember.js
 
 ## Prerequisites
 
