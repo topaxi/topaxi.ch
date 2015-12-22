@@ -293,7 +293,7 @@
 
 @media (--lg-viewport) {
   .main-header, .content, .site-footer {
-    width: 60%;
+    width: 70%;
   }
 
   .brand::after, .brand::after {
@@ -302,5 +302,11 @@
 
   .brand a {
     font-size: 5rem;
+  }
+}
+
+@media (--xl-viewport) {
+  .main-header, .content, .site-footer {
+    width: 60%;
   }
 }
