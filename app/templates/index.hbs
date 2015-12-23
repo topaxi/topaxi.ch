@@ -1,26 +1,26 @@
 <h4>Latest blog post</h4>
 
-{{#if model}}
+{{#with model.blog as |blog|}}
   <article class="post">
     <header class="post-header">
       <h2 class="post-title">
-        <a href="https://topaxi.codes{{model.url}}">{{model.title}}</a>
+        <a href="https://topaxi.codes{{blog.url}}">{{blog.title}}</a>
       </h2>
     </header>
     <section class="post-excerpt">
-      <p>{{excerpt model.html words=26}} <a class="read-more" href="https://topaxi.codes{{model.url}}">&raquo;</a></p>
+      <p>{{excerpt blog.html words=26}} <a class="read-more" href="https://topaxi.codes{{blog.url}}">&raquo;</a></p>
     </section>
     <footer class="post-meta">
-      <img class="author-thumb" src={{model.author.image}} alt={{model.author.name}} nopin="nopin">
-      <a href="https://topaxi.codes/author/{{model.author.slug}}/">{{model.author.name}}</a>
-      {{#with model.tags as |tags|}}
+      <img class="author-thumb" src={{blog.author.image}} alt={{blog.author.name}} nopin="nopin">
+      <a href="https://topaxi.codes/author/{{blog.author.slug}}/">{{blog.author.name}}</a>
+      {{#with blog.tags as |tags|}}
         on
         {{#each tags as |tag index|}}
           <a href="https://topaxi.codes/tag/{{tag.slug}}/">{{tag.name}}</a>{{#unless (eq tags.lastObject tag)}},{{/unless}}
         {{/each}}
       {{/with}}
-      <time class="post-date" datetime={{moment-format model.published_at 'YYYY-MM-DD'}}>
-        {{moment-format model.published_at 'DD MMMM YYYY'}}
+      <time class="post-date" datetime={{moment-format blog.published_at 'YYYY-MM-DD'}}>
+        {{moment-format blog.published_at 'DD MMMM YYYY'}}
       </time>
     </footer>
   </article>
@@ -37,7 +37,6 @@
     </footer>
   </article>
 {{/if}}
-
 
 <h4>Find me on</h4>
 
@@ -96,3 +95,11 @@
     </a>
   </dd>
 </dl>
+
+<h4>Github activity</h4>
+
+<div class="github-activity-feed">
+  {{#each model.github as |gh|}}
+    {{github-event gh=gh}}
+  {{/each}}
+</div>

@@ -1,5 +1,6 @@
-/* global FontFaceObserver */
-import $ from 'jquery'
+/* global document */
+import $                from 'jquery'
+import FontFaceObserver from 'font-face-observer'
 
 // Only loading always needed fonts, italic,
 // some bold versions etc. might be invisible until loaded.
@@ -32,6 +33,18 @@ export function loadFonts() {
     observer.check().then(() => {
       $('html').addClass(font.class)
     })
+  })
+
+  loadOcticons()
+}
+
+export function loadOcticons() {
+  let octicons = new FontFaceObserver('octicons', { weight: 'normal', style: 'normal' })
+  return octicons.check().then(() => {
+    let octisheet = document.createElement('link')
+    octisheet.rel  = 'stylesheet'
+    octisheet.href = 'assets/vendor.css'
+    document.head.appendChild(octisheet)
   })
 }
 

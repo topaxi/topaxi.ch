@@ -2,6 +2,10 @@
 @import 'default.css';
 @import 'fonts.css';
 
+.octicon {
+  display: none;
+}
+
 .main-header, .main-header-content, .content, .site-footer {
   min-width: 320px;
   max-width: 1400px;

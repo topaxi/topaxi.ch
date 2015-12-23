@@ -14,6 +14,7 @@ module.exports = function(defaults) {
   });
 
   app.import('vendor/fontfaceobserver.js')
+  app.import('vendor/shims/font-face-observer.js')
 
   return app.toTree();
 };
