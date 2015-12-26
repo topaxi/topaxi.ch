@@ -1,34 +1,38 @@
-{{oct-icon 'git-commit'}}
+<div class="body">
+  {{oct-icon 'git-commit' class='mega-octicon'}}
 
-<div class="time">{{moment-from-now gh.created_at}}</div>
-<div class="title">
-  <a href="https://github.com/{{gh.actor.login}}">{{gh.actor.login}}</a>
-  pushed to
-  <a href="https://github.com/{{gh.repo.name}}/tree/{{ref-to-branch gh.payload.ref}}">
-    {{~ref-to-branch gh.payload.ref~}}
-  </a>
-  at
-  <a href="https://github.com/{{gh.repo.name}}">{{gh.repo.name}}</a>
-</div>
-<div class="details">
-  <img src={{gh.actor.avatar_url}} width="48" height="48">
-  <div class="commits">
-    <ul>
-      {{#each commits as |commit|}}
-        <li>
-          <code><a href="https://github.com/{{gh.repo.name}}/commit/{{commit.sha}}">
-            {{~commit.sha~}}
-          </a></code>
-          <div class="message"><blockquote>{{commit.message}}</blockquote></div>
-        </li>
-      {{/each}}
-      {{#if showMore}}
-        <li>
-          <a href="https://github.com/{{gh.repo.name}}/compare/{{gh.payload.before}}...{{gh.payload.commits.lastObject.sha}}">
-            {{gh.payload.size}} more commits »
-          </a>
-        </li>
-      {{/if}}
-    </ul>
+  <div class="time">{{moment-from-now gh.created_at}}</div>
+  <div class="title">
+    <a href="https://github.com/{{gh.actor.login}}">{{gh.actor.login}}</a>
+    pushed to
+    <a href="https://github.com/{{gh.repo.name}}/tree/{{ref-to-branch gh.payload.ref}}">
+      {{~ref-to-branch gh.payload.ref~}}
+    </a>
+    at
+    <a href="https://github.com/{{gh.repo.name}}">{{gh.repo.name}}</a>
+  </div>
+  <div class="details">
+    <a href="https://github.com/{{gh.actor.login}}">
+      <img class="gravatar" alt="@{{gh.actor.login}}" src={{gh.actor.avatar_url}} width="48" height="48">
+    </a>
+    <div class="commits">
+      <ul>
+        {{#each commits as |commit|}}
+          <li>
+            <code title={{commit.sha}}><a href="https://github.com/{{gh.repo.name}}/commit/{{commit.sha}}">
+              {{~commit.sha~}}
+            </a></code>
+            <div class="message"><blockquote>{{commit.message}}</blockquote></div>
+          </li>
+        {{/each}}
+        {{#if showMore}}
+          <li>
+            <a href="https://github.com/{{gh.repo.name}}/compare/{{gh.payload.before}}...{{gh.payload.commits.lastObject.sha}}">
+              {{gh.payload.size}} more commits »
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
   </div>
 </div>

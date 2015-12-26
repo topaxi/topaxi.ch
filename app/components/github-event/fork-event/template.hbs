@@ -1,0 +1,16 @@
+<div class="body">
+  {{oct-icon 'git-branch'}}
+
+  <div class="title">
+    <a href="https://github.com/{{gh.actor.login}}">{{gh.actor.login}}</a>
+    forked
+    <a href="https://github.com/{{gh.repo.name}}">
+      {{~gh.repo.name~}}
+    </a>
+    to
+    <a href="https://github.com/{{gh.payload.forkee.full_name}}">
+      {{~gh.payload.forkee.full_name~}}
+    </a>
+  </div>
+  <div class="time">{{moment-from-now gh.created_at}}</div>
+</div>

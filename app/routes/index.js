@@ -3,7 +3,7 @@ import Route         from 'ember-route'
 import injectService from 'ember-service/inject'
 import ENV           from '../config/environment'
 
-const GITHUB_EVENTS = [ 'PushEvent', 'PullRequestEvent' ]
+const GITHUB_EVENTS = [ 'PushEvent', 'PullRequestEvent', 'CreateEvent', 'ForkEvent' ]
 
 export default Route.extend({
   ajax:   injectService(),
@@ -11,8 +11,9 @@ export default Route.extend({
 
   getGithubEvents() {
     let gh = this.get('github')
-    return gh.request('/users/topaxi/events/public', { data: { 'per_page': 5 } })
+    return gh.request('/users/topaxi/events/public', { data: { 'per_page': 15 } })
              .then(events => events.filter(e => GITHUB_EVENTS.includes(e.type)))
+             .then(events => events.slice(0, 5))
   },
 
   getLatestBlogPost() {
