@@ -1,6 +1,20 @@
 <h4>Latest blog post</h4>
 
-{{model}}
+{{#if model}}
+  {{model}}
+{{else}}
+  <article class="post tag-ember-js tag-ember-cli tag-css">
+    <header class="post-header">
+      <h2 class="post-title"></h2>
+    </header>
+    <section class="post-excerpt"></section>
+    <footer class="post-meta">
+      <img class="author-thumb" src="//www.gravatar.com/avatar/1fee136e557e3d84277a2741d6d08d25?s=250&amp;d=mm&amp;r=x" alt="Damian Senn" nopin="nopin">
+      <a href="https://topaxi.codes/author/damian/">Damian Senn</a>
+    </footer>
+</article>
+{{/if}}
+
 
 <h4>Find me on</h4>
 

@@ -149,6 +149,11 @@
   line-height: 1.7em;
 }
 
+.post-excerpt:empty {
+  font-size: .9em;
+  height: 1.7em;
+}
+
 /* TODO: Remove from ghost theme */
 .author-thumb {
   width: 24px;
