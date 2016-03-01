@@ -67,10 +67,6 @@ body {
   margin: 0 0 0.4em;
 }
 
-:--headings:empty::before {
-  content: '\a0';
-}
-
 .font-heading--loaded :--headings {
   font-family: var(--font-heading-custom);
 }
