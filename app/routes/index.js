@@ -1,6 +1,6 @@
-import $             from 'jquery'
 import Route         from 'ember-route'
 import injectService from 'ember-service/inject'
+import ENV           from '../config/environment'
 
 const isFastboot = typeof najax !== 'undefined'
 
@@ -13,10 +13,14 @@ export default Route.extend({
     }
 
     return this.get('ajax')
-      .request('https://topaxi.codes/', { dataType: 'html' })
-      .then(data      => data.replace(/href="\//g, 'href="https://topaxi.codes/'))
-      .then(data      => $(data))
-      .then($data     => $data.find('article'))
-      .then($articles => $articles.get(0))
+      .request(`${ENV['topaxi.codes'].url}/ghost/api/v0.1/posts/`, {
+        data: {
+          'limit':         1,
+          'include':       'tags,author',
+          'client_id':     ENV['topaxi.codes'].clientId,
+          'client_secret': ENV['topaxi.codes'].clientSecret
+        }
+      })
+      .then(data => data.posts[0])
   }
 })

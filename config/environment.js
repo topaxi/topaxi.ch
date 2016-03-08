@@ -26,6 +26,12 @@ module.exports = function(environment) {
       'img-src': "'self' www.gravatar.com",
       'style-src': "'self'",
       'media-src': "'self'"
+    },
+
+    'topaxi.codes': {
+      url:          'https://topaxi.codes',
+      clientId:     'topaxi.ch',
+      clientSecret: 'FpzBm55k0V'
     }
 
   };

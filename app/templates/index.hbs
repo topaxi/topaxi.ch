@@ -1,7 +1,29 @@
 <h4>Latest blog post</h4>
 
 {{#if model}}
-  {{model}}
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title">
+        <a href="https://topaxi.codes{{model.url}}">{{model.title}}</a>
+      </h2>
+    </header>
+    <section class="post-excerpt">
+      <p>{{excerpt model.html words=26}} <a class="read-more" href="https://topaxi.codes{{model.url}}">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+      <img class="author-thumb" src={{model.author.image}} alt={{model.author.name}} nopin="nopin">
+      <a href="https://topaxi.codes/author/{{model.author.slug}}/">{{model.author.name}}</a>
+      {{#with model.tags as |tags|}}
+        on
+        {{#each tags as |tag index|}}
+          <a href="https://topaxi.codes/tag/{{tag.slug}}/">{{tag.name}}</a>{{#unless (eq tags.lastObject tag)}},{{/unless}}
+        {{/each}}
+      {{/with}}
+      <time class="post-date" datetime={{moment-format model.published_at 'YYYY-MM-DD'}}>
+        {{moment-format model.published_at 'DD MMMM YYYY'}}
+      </time>
+    </footer>
+  </article>
 {{else}}
   <article class="post post--empty">
     <header class="post-header">
@@ -11,8 +33,9 @@
     <footer class="post-meta">
       <img class="author-thumb" src="//www.gravatar.com/avatar/1fee136e557e3d84277a2741d6d08d25?s=250&amp;d=mm&amp;r=x" alt="Damian Senn" nopin="nopin">
       <a href="https://topaxi.codes/author/damian/">Damian Senn</a>
+      <time class="post-date"></time>
     </footer>
-</article>
+  </article>
 {{/if}}
 
 
