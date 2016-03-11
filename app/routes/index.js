@@ -2,16 +2,10 @@ import Route         from 'ember-route'
 import injectService from 'ember-service/inject'
 import ENV           from '../config/environment'
 
-const isFastboot = typeof najax !== 'undefined'
-
 export default Route.extend({
-  ajax: isFastboot ? null : injectService(),
+  ajax: injectService(),
 
   model() {
-    if (isFastboot) {
-      return
-    }
-
     return this.get('ajax')
       .request(`${ENV['topaxi.codes'].url}/ghost/api/v0.1/posts/`, {
         data: {
