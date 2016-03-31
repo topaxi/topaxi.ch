@@ -29,7 +29,8 @@ module.exports = function(environment) {
     },
 
     'topaxi.codes': {
-      url:          'https://topaxi.codes',
+      host:         'https://topaxi.codes',
+      api:          '/ghost/api/v0.1',
       clientId:     'topaxi.ch',
       clientSecret: 'FpzBm55k0V'
     }

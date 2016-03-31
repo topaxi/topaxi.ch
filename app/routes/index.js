@@ -1,13 +1,17 @@
 import RSVP          from 'rsvp'
 import Route         from 'ember-route'
 import injectService from 'ember-service/inject'
-import ENV           from '../config/environment'
 
-const GITHUB_EVENTS = [ 'PushEvent', 'PullRequestEvent', 'CreateEvent', 'ForkEvent' ]
+const GITHUB_EVENTS = [
+  'PushEvent',
+  'PullRequestEvent',
+  'CreateEvent',
+  'ForkEvent'
+]
 
 export default Route.extend({
-  ajax:   injectService(),
-  github: injectService(),
+  github:      injectService(),
+  topaxiCodes: injectService(),
 
   getGithubEvents() {
     let gh = this.get('github')
@@ -17,13 +21,11 @@ export default Route.extend({
   },
 
   getLatestBlogPost() {
-    return this.get('ajax')
-      .request(`${ENV['topaxi.codes'].url}/ghost/api/v0.1/posts/`, {
+    let topaxiCodes = this.get('topaxiCodes')
+    return topaxiCodes.request('/posts/', {
         data: {
-          'limit':         1,
-          'include':       'tags,author',
-          'client_id':     ENV['topaxi.codes'].clientId,
-          'client_secret': ENV['topaxi.codes'].clientSecret
+          limit:   1,
+          include: 'tags,author'
         }
       })
       .then(data => data.posts[0])
