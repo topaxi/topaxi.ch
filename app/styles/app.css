@@ -326,6 +326,7 @@
   overflow: hidden;
   line-height: 1.25;
   padding-right: 0;
+  white-space: nowrap;
 }
 
 .github-events .commits li img {
