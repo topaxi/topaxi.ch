@@ -40,6 +40,7 @@
     "ember-load-initializers": "^0.5.0",
     "ember-moment": "6.0.0",
     "ember-resolver": "^2.0.3",
+    "eslint-config-topaxi": "^1.0.1",
     "fontfaceobserver": "^1.6.1",
     "loader.js": "^4.0.0"
   }

@@ -8,7 +8,7 @@ const Router = Ember.Router.extend({
     if (window.ga) {
       let url = this.get('url')
 
-      return window.ga('send', 'pageview', {
+      window.ga('send', 'pageview', {
         page:  url,
         title: url
       })

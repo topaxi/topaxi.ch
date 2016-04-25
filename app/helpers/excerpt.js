@@ -7,7 +7,8 @@ export function excerpt([ html ], { words }) {
   // Strip other html
   excerpt = excerpt.replace(/<\/?[^>]+>/gi, '')
   excerpt = excerpt.replace(/(\r\n|\n|\r)+/gm, ' ')
+
   return excerpt.split(/\s+/).slice(0, words).join(' ')
 }
 
-export default helper(excerpt);
+export default helper(excerpt)

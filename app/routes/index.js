@@ -9,10 +9,10 @@ export default Route.extend({
     return this.get('ajax')
       .request(`${ENV['topaxi.codes'].url}/ghost/api/v0.1/posts/`, {
         data: {
-          'limit':         1,
-          'include':       'tags,author',
-          'client_id':     ENV['topaxi.codes'].clientId,
-          'client_secret': ENV['topaxi.codes'].clientSecret
+          limit:         1,
+          include:       'tags,author',
+          client_id:     ENV['topaxi.codes'].clientId,
+          client_secret: ENV['topaxi.codes'].clientSecret
         }
       })
       .then(data => data.posts[0])
