@@ -20,7 +20,14 @@
 }
 
 .site-footer {
+  color: #bbc7cc; /* TODO: Remove from ghost theme */
   font-size: 1.25rem;
+}
+
+/* TODO: Remove from ghost theme */
+.site-footer a {
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .brand {
