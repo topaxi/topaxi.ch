@@ -122,7 +122,7 @@ p, ul, ol, dl {
   text-rendering: geometricprecision;
 }
 
-.font-serif--loaded :matches(p, ul, ol, dl) {
+.font-serif--loaded :matches(p, ul, ol, dl, figcaption) {
   font-family: var(--font-serif-custom);
 }
 
