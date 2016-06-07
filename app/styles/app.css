@@ -2,6 +2,22 @@
 @import 'default.css';
 @import 'fonts.css';
 
+.atk::before {
+  transition: all 200ms cubic-bezier(1,0,0,1);
+  content: url('/assets/pictures/surprise-attack.svg');
+  position: fixed;
+  z-index: 100;
+  width: 100px;
+  right: -20px;
+  bottom: -83px;
+}
+
+.atk:hover::before {
+  width: 192px;
+  right: 0;
+  bottom: -10px;
+}
+
 .main-header, .main-header-content, .content, .site-footer {
   min-width: 320px;
   max-width: 1400px;
