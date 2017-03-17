@@ -12,15 +12,18 @@
     </section>
     <footer class="post-meta">
       <img class="author-thumb" src={{model.author.image}} alt={{model.author.name}} nopin="nopin">
-      <a href="https://topaxi.codes/author/{{model.author.slug}}/">{{model.author.name}}</a>
+      <a href="https://topaxi.codes/author/{{model.author.slug}}/">
+        {{~model.author.name~}}
+      </a>
       {{#with model.tags as |tags|}}
         on
         {{#each tags as |tag index|}}
-          <a href="https://topaxi.codes/tag/{{tag.slug}}/">{{tag.name}}</a>{{#unless (eq tags.lastObject tag)}},{{/unless}}
+          <a href="https://topaxi.codes/tag/{{tag.slug}}/">{{tag.name}}</a>
+          {{~#unless (eq tags.lastObject tag)}},{{/unless}}
         {{/each}}
       {{/with}}
-      <time class="post-date" datetime={{moment-format model.published_at 'YYYY-MM-DD'}}>
-        {{moment-format model.published_at 'DD MMMM YYYY'}}
+      <time class="post-date" datetime={{model.published_at}}>
+        {{~date-to-string model.published_at~}}
       </time>
     </footer>
   </article>
