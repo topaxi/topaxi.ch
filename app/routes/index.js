@@ -8,10 +8,10 @@ export default Route.extend({
   fastboot: injectService(),
   firstVisit: true,
   post: computed({
-    get: function() {
+    get() {
       return this.get('fastboot.shoebox').retrieve('codes-store')
     },
-    set: function(key, value) {
+    set(key, value) {
       if (this.get('fastboot.isFastBoot')) {
         this.get('fastboot.shoebox').put('codes-store', value)
       }
@@ -34,8 +34,8 @@ export default Route.extend({
           data: {
             limit:         1,
             include:       'tags,author',
-            client_id:     ENV['topaxi.codes'].clientId,
-            client_secret: ENV['topaxi.codes'].clientSecret
+            client_id:     ENV['topaxi.codes'].clientId, // eslint-disable-line
+            client_secret: ENV['topaxi.codes'].clientSecret // eslint-disable-line
           }
         })
         .then(data => data.posts[0])
@@ -53,7 +53,7 @@ export default Route.extend({
               slug: tag.slug,
               name: tag.name
             })),
-            published_at: post.published_at
+            published_at: post.published_at // eslint-disable-line
           })
         )
         .then(post => {

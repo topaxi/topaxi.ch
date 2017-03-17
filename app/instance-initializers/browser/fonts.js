@@ -1,4 +1,5 @@
 /* global FontFaceObserver */
+/* eslint-disable spaced-comment, max-len */
 import $ from 'jquery'
 
 // Only loading always needed fonts, italic,

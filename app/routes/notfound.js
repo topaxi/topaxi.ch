@@ -1,6 +1,8 @@
 import Route         from 'ember-route'
 import injectService from 'ember-service/inject'
 
+const NOT_FOUND = 404
+
 export default Route.extend({
   fastboot: injectService(),
 
@@ -8,7 +10,7 @@ export default Route.extend({
     let isFastBoot = this.get('fastboot.isFastBoot')
 
     if (isFastBoot) {
-      this.set('fastboot.response.statusCode', 404)
+      this.set('fastboot.response.statusCode', NOT_FOUND)
     }
   }
 })
