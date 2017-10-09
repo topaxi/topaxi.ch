@@ -269,6 +269,13 @@
   background-color: #D51007;
 }
 
+.badge--instagram {
+  background-color: #E4405F;
+}
+.badge--instagram svg {
+  fill: #fff;
+}
+
 @media (--xs-viewport) {
   .main-header, .content, .site-footer {
     padding: 0 5%;
