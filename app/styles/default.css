@@ -44,6 +44,7 @@ html {
   color: rgb(56, 66, 69);
   font-size: 62.5%;
   overflow-y: scroll;
+  scrollbar-color: var(--color-primary) transparent;
   height: 100%;
 }
 
